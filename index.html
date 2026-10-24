@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lifespan Arena</title>
+<style>
+ body{font-family:Georgia,serif;margin:0;padding:0 16px;background:#f4f1ea;color:#22252a}
+ .wrap{max-width:860px;margin:0 auto;padding:24px 0 48px}
+ h1{font-size:1.7rem;margin:0 0 2px}
+ .tag{color:#6b6f76;margin:0 0 20px;font-size:.95rem}
+ .panel{background:#fff;border:1px solid #d8d2c4;padding:16px 18px;margin-bottom:14px}
+ .panel h2{margin:0 0 10px;font-size:1.05rem}
+ .row{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+ .card{flex:1 1 180px;border:1px solid #c9c2b2;background:#faf8f3;padding:10px 12px;cursor:pointer}
+ .card:hover{border-color:#7a6f52}
+ .card.sel{border-color:#22252a;background:#efeadb}
+ .card b{display:block;margin-bottom:4px}
+ .card span{font-size:.88rem;color:#4c5057}
+ button{font:inherit;padding:8px 18px;background:#22252a;color:#fff;border:0;cursor:pointer;margin-top:8px}
+ button:disabled{opacity:.4;cursor:default}
+ .kv{margin:4px 0}
+ .log{font-size:.9rem;max-height:190px;overflow-y:auto;background:#faf8f3;border:1px solid #d8d2c4;padding:8px 12px}
+ .log div{margin:3px 0}
+ .verdict{font-size:1.1rem;font-weight:bold;margin:6px 0}
+ table{border-collapse:collapse;width:100%;margin-top:8px;font-size:.92rem}
+ td,th{border:1px solid #d8d2c4;padding:4px 8px;text-align:left}
+ .muted{color:#6b6f76;font-size:.85rem}
+ .src{font-size:.85rem;margin-top:18px}
+ .src a{color:#39424e}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Lifespan Arena</h1>
+<p class="tag">Two products enter. The one that dies first pays more per year of service.</p>
+
+<div id="m0" class="panel">
+ <h2>1. Name the arena</h2>
+ <div class="row" id="duel"></div>
+ <p class="muted">Each duel pits a budget pick against a buy-it-for-life pick in the
+ same job. This round: <span id="duelname"></span>.</p>
+ <button id="duelStart">Start this duel</button>
+</div>
+
+<div id="m1" class="panel" style="display:none">
+ <h2>2. Draft your budget product</h2>
+ <div class="row" id="rowA"></div>
+ <button id="lockA">Lock in</button>
+</div>
+
+<div id="m2" class="panel" style="display:none">
+ <h2>3. Draft your buy-it-for-life product</h2>
+ <div class="row" id="rowB"></div>
+ <button id="lockB">Lock in</button>
+</div>
+
+<div id="m3" class="panel" style="display:none">
+ <h2>4. Years roll</h2>
+ <div id="scores"></div>
+ <button id="nextYear">Next year</button>
+ <div id="log" class="log"></div>
+ <div id="end" style="display:none">
+  <div class="verdict" id="verdict"></div>
+  <table id="board"></table>
+  <button id="again">New duel</button>
+ </div>
+</div>
+
+<p class="src">Method and teardown angles live at
+<a href="https://durablepicks.com/">durablepicks.com</a>. Failure-mode
+field notes: <a href="https://en.wikipedia.org/wiki/Bathtub_curve">bathtub curve</a>,
+<a href="https://en.wikipedia.org/wiki/Planned_obsolescence">planned obsolescence</a>.</p>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
